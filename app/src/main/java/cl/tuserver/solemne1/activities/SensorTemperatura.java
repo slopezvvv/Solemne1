@@ -1,8 +1,9 @@
 package cl.tuserver.solemne1.activities;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class SensorTemperatura extends Thread{
+public class SensorTemperatura extends Thread implements Serializable {
     private static double TEMPERATURA_ACTUAL = 0.0;
     private Random rand;
 
@@ -27,7 +28,7 @@ public class SensorTemperatura extends Thread{
             try{
                 TEMPERATURA_ACTUAL = rand.nextDouble()*100;
                 System.out.println(String.format("Temperatura actual: %f", TEMPERATURA_ACTUAL));
-                Thread.sleep(1000);
+                Thread.sleep(5000);
             }
             catch (InterruptedException ex){
                 System.out.println("Thread say\'s: " + ex.getMessage());
